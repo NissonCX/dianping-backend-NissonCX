@@ -15,6 +15,6 @@ import java.util.List;
  * @since 2021-12-22
  */
 public interface ShopTypeMapper extends BaseMapper<ShopType> {
-    @Select("select * from tb_shop_type order by sort asc")
+    @Select("SELECT * FROM tb_shop_type ORDER BY sort ASC")
     List<ShopType> queryTypeList();
 }
