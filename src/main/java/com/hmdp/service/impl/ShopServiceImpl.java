@@ -45,6 +45,10 @@ public class ShopServiceImpl extends ServiceImpl<ShopMapper, Shop> implements IS
      * 1. queryWithPassThrough - 缓存穿透解决方案
      * 2. queryWithMutex - 缓存击穿解决方案（使用互斥锁）
      *
+     * 当前使用的是queryWithLogicalExpire方法，但该方法存在BUG，
+     * 在CacheClient类中没有正确使用keyPrefix参数，导致Redis键构造错误，
+     * 使得无法从缓存中获取数据。
+     *
      * @param id 商店ID
      * @return 商店信息结果对象
      */
