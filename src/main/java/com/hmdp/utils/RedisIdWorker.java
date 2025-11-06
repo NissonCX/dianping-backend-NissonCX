@@ -39,6 +39,7 @@ public class RedisIdWorker {
      * Redis操作模板
      * 用于操作Redis，实现序列号的原子性自增
      */
+    @Resource
     private StringRedisTemplate stringRedisTemplate;
 
     /**
