@@ -83,7 +83,9 @@ public class BlogServiceImpl extends ServiceImpl<BlogMapper, Blog> implements IB
             boolean isSuccess = update().setSql("liked = liked - 1")
                     .eq("id", id)
                     .update();
-            stringRedisTemplate.opsForSet().remove(key, userId.toString());
+            if (isSuccess) {
+                stringRedisTemplate.opsForSet().remove(key, userId.toString());
+            }
         }
         return Result.ok();
     }
