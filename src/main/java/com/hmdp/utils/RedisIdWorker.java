@@ -72,15 +72,4 @@ public class RedisIdWorker {
         return timestamp << COUNT_BITS | count;
     }
 
-    /**
-     * 计算开始时间戳的main方法
-     * 用于计算指定日期的时间戳，便于设置BEGIN_TIMESTAMP常量
-     * <p>
-     * 示例：计算2022年1月1日0点0分0秒的UTC时间戳
-     */
-    public static void main(String[] args) {
-        LocalDateTime time = LocalDateTime.of(2022, 1, 1, 0, 0, 0);
-        long second = time.toEpochSecond(ZoneOffset.UTC);
-        System.out.println("second = " + second);
-    }
 }
