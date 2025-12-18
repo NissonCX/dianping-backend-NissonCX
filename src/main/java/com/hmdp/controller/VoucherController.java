@@ -10,10 +10,12 @@ import javax.annotation.Resource;
 
 /**
  * <p>
- *  前端控制器
+ *  优惠券管理控制器
+ *  提供优惠券的新增、查询等功能，包括普通优惠券和秒杀优惠券
  * </p>
  *
- * @author 虎哥
+ * @author Nisson
+ * @since 2025-10-01
  */
 @RestController
 @RequestMapping("/voucher")
@@ -24,6 +26,7 @@ public class VoucherController {
 
     /**
      * 新增秒杀券
+     *
      * @param voucher 优惠券信息，包含秒杀信息
      * @return 优惠券id
      */

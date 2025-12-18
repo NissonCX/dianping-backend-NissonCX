@@ -9,10 +9,12 @@ import javax.annotation.Resource;
 
 /**
  * <p>
- * 前端控制器
+ * 关注控制器
+ * 提供关注、取关、共同关注等功能
  * </p>
  *
- * @author 虎哥
+ * @author Nisson
+ * @since 2025-10-01
  */
 @RestController
 @RequestMapping("/follow")

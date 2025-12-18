@@ -23,10 +23,10 @@ import java.time.format.DateTimeFormatter;
 public class RedisIdWorker {
     /**
      * 开始时间戳
-     * 设置为2022-01-01 00:00:00的UTC时间戳
+     * 设置为2025-01-01 00:00:00的UTC时间戳
      * 通过减去开始时间戳，可以减少时间戳位数，腾出更多位给序列号使用
      */
-    private static final long BEGIN_TIMESTAMP = 1640995200L;
+    private static final long BEGIN_TIMESTAMP = 1735689600L;
 
     /**
      * 序列号位数

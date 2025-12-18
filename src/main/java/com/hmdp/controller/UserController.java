@@ -18,10 +18,12 @@ import javax.servlet.http.HttpSession;
 
 /**
  * <p>
- * 前端控制器
+ * 用户控制器
+ * 提供用户登录、注册、查询等功能
  * </p>
  *
- * @author 虎哥
+ * @author Nisson
+ * @since 2025-10-01
  */
 @Slf4j
 @RestController

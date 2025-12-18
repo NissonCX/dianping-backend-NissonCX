@@ -32,8 +32,8 @@ import java.util.concurrent.Executors;
  * 服务实现类
  * </p>
  *
- * @author 虎哥
- * @since 2021-12-22
+ * @author Nisson
+ * @since 2025-10-01
  */
 @Slf4j
 @Service
@@ -399,7 +399,7 @@ public class VoucherOrderServiceImpl extends ServiceImpl<VoucherOrderMapper, Vou
             long orderId = redisIdWorker.nextId("order");
             voucherOrder.setId(orderId);
             // 7.2.用户id
-            voucherOrder.setUserId(userId);
+            voucherOrde  r.setUserId(userId);
             // 7.3.代金券id
             voucherOrder.setVoucherId(voucherId);
             save(voucherOrder);
