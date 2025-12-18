@@ -1,6 +1,9 @@
 package com.hmdp.utils;
 
 /**
+ * 正则表达式工具类
+ * 统一管理常用的正则表达式，方便维护和复用
+ *
  * @author Nisson
  */
 public abstract class RegexPatterns {

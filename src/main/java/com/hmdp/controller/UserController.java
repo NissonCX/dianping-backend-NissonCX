@@ -65,44 +65,67 @@ public class UserController {
         return Result.fail("功能未完成");
     }
 
+    /**
+     * 获取当前登录用户信息
+     * @return 当前用户信息（从ThreadLocal获取）
+     */
     @GetMapping("/me")
     public Result me(){
-        // 获取当前登录的用户并返回
+        // 从ThreadLocal获取当前登录用户
         UserDTO user = UserHolder.getUser();
         return Result.ok(user);
     }
 
+    /**
+     * 根据ID查询用户详细信息
+     * @param userId 用户ID
+     * @return 用户详细信息
+     */
     @GetMapping("/info/{id}")
     public Result info(@PathVariable("id") Long userId){
-        // 查询详情
+        // 查询用户详细信息（tb_user_info表）
         UserInfo info = userInfoService.getById(userId);
         if (info == null) {
-            // 没有详情，应该是第一次查看详情
+            // 首次查看，返回空
             return Result.ok();
         }
+        // 隐藏时间字段
         info.setCreateTime(null);
         info.setUpdateTime(null);
-        // 返回
         return Result.ok(info);
     }
 
+    /**
+     * 根据ID查询用户基本信息
+     * @param userId 用户ID
+     * @return 用户基本信息（脱敏后）
+     */
     @GetMapping("/{id}")
     public Result queryUserById(@PathVariable("id") Long userId){
-        // 查询详情
+        // 查询用户基本信息（tb_user表）
         User user = userService.getById(userId);
         if (user == null) {
             return Result.ok();
         }
+        // 转换为DTO（脱敏：只返回必要信息）
         UserDTO userDTO = BeanUtil.copyProperties(user, UserDTO.class);
-        // 返回
         return Result.ok(userDTO);
     }
 
+    /**
+     * 用户签到
+     * 使用Redis Bitmap记录签到状态
+     * @return 签到结果
+     */
     @PostMapping("/sign")
     public Result sign(){
         return userService.sign();
     }
 
+    /**
+     * 统计连续签到天数
+     * @return 连续签到天数
+     */
     @GetMapping("/sign/count")
     public Result signCount(){
         return userService.signCount();

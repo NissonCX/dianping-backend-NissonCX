@@ -11,9 +11,19 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 
 /**
- * <p>
- * 
- * </p>
+ * 优惠券订单实体类
+ * 对应数据库表：tb_voucher_order
+ *
+ * 字段说明：
+ * - id：订单ID（使用RedisIdWorker生成，非自增）
+ * - userId：下单用户ID
+ * - voucherId：优惠券ID
+ * - payType：支付方式
+ * - status：订单状态
+ * - createTime：创建时间
+ * - payTime：支付时间
+ * - useTime：核销时间
+ * - refundTime：退款时间
  *
  * @author Nisson
  * @since 2025-10-01
